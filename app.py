@@ -29,11 +29,23 @@ model_dct = {'1': 0, '3': 1, '5': 2, '6': 3, '7': 4, '800': 5, 'a': 6, 'a-star':
 
 data = pd.read_csv('./Dataset/dataset_temp.csv') 
 data_for_range = pd.read_csv('./Dataset/final_data.csv')
-pickle_in = open('model.pkl', 'rb') 
-regressor = pickle.load(pickle_in) 
 
-annotation = keras.models.load_model("Image-annotation.h5")
-classifier = keras.models.load_model("model_cnn.h5")
+@st.cache_resource()
+def load_regressor():
+    pickle_in = open('model.pkl', 'rb')
+    return pickle.load(pickle_in)
+
+@st.cache_resource()
+def load_annotation(): 
+    return keras.models.load_model("Image-annotation.h5")
+
+@st.cache_resource()
+def load_cnn(): 
+    return keras.models.load_model("model_cnn.h5")
+
+regressor = load_regressor() 
+annotation = load_annotation()
+classifier = load_cnn()
 
 from keras.utils import load_img, img_to_array 
 
