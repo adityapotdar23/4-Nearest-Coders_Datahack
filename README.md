@@ -1,4 +1,6 @@
 # Car 101 - Selling Price Prediction for Used Cars
+![logo_cropped](https://user-images.githubusercontent.com/91947505/230764503-4baf69cd-f9e0-4af4-98cd-ac1bcbbe307a.jpg)
+
 Project performed at DataHack 1.0 organized by DJS-S4DS
 
 <b>Team Name - 4-Nearest Coders</b>
